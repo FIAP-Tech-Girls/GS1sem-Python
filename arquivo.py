@@ -7,14 +7,13 @@ import time # intervalo de tempo para o usuário processar as informações
 
 # Programa principal
 
-cadastro = 0 # Variável para ser utilizada como looping do cadastro (para não encerrar caso usuário digite algo errado)
-
 # Mensagem de boas vindas
 print("Seja bem-vindo(a)! Eu me chamo Alice, uma inteligência artificial produzida pela SFOME!")
 print("Para prosseguirmos, será necessário a realização do seu cadastro! Vamos lá?!")
 time.sleep(1)
 
-while cadastro == 0:
+while True: # Looping infinito para caso o usuário insira uma opção inválida, não fechar o programa!
+
     # Vendo se o usuário é do tipo produtor ou consumidor final
     print("Você é um produtor ou somente um consumidor final?")
     print("\n 1 - Produtor \n 2 - Consumidor final \n")
@@ -25,15 +24,15 @@ while cadastro == 0:
         
         elif tipoUsuario == 1:
             print("Implementação futura...")
-            cadastro = 1
+            break
 
         elif tipoUsuario == 2:
             print("Implementação futura...")
-            cadastro = 1
+            break
 
     except ValueError:
-        print("Por favor, insira somente números! Tente novamente com uma opção válida!")
+        print("Por favor, insira somente números! Tente novamente!")
         time.sleep(1)
     except TypeError:
-        print("Por favor, insira um número válido das opções disponíveis!")
+        print("Por favor, insira uma opção válida disponível!")
         time.sleep(1)
