@@ -63,10 +63,10 @@ def cadastraProdutor():
     senha = getpass.getpass("Para sua segurança, a senha não mostrará valor enquanto digita. Ao finalizar, aperte enter que será cadastrada automaticamente!", stream=None)
 
     produtor[email] = {
-        'Nome representante': nome,
+        'Nome produtor': nome,
         'CPF': cpf,
         'Data de nascimento': dataNasc,
-        'Telefone do representante': telRepresentante,
+        'Telefone': telRepresentante,
         'Senha': senha
     }
 
@@ -79,7 +79,7 @@ print("Seja bem-vindo(a)! Eu me chamo Alice, uma inteligência artificial produz
 print("Para prosseguirmos, será necessário a realização do seu cadastro! Vamos lá?!")
 time.sleep(1)
 
-while True: # Looping infinito de cadastro para caso o usuário insira uma opção inválida, não fechar o programa!
+while True: # Looping infinito para caso o usuário insira uma opção inválida, não fechar o programa!
 
     # Vendo se o usuário é do tipo produtor ou consumidor final
     print("Você é um produtor ou somente um consumidor final?")
