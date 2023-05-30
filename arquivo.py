@@ -12,6 +12,7 @@ consumidor = {}
 
 # Funções
 
+# Cadastrando um produtor que representa uma empresa! -> código ficar mais clean no looping
 def cadastraProdutorEmpresa():
     print("Certo, precisaremos de algumas informações pessoais sobre você!")
     print("Qual seu nome completo?")
@@ -46,6 +47,30 @@ def cadastraProdutorEmpresa():
 
     return nome # Apenas para conseguir conversar com o usuário
 
+# Cadastrando um produtor que não representa uma empresa
+def cadastraProdutor():
+    print("Qual seu nome completo?")
+    nome = input("")
+    print("Qual seu CPF?")
+    cpf = input("")
+    print("Qual a sua data de nascimento?")
+    dataNasc = input("")
+    print("Qual seu e-mail?")
+    email = input("")
+    print("Qual o seu telefone para contato?")
+    telRepresentante = input("")
+    print("Digite sua senha")
+    senha = getpass.getpass("Para sua segurança, a senha não mostrará valor enquanto digita. Ao finalizar, aperte enter que será cadastrada automaticamente!", stream=None)
+
+    produtor[email] = {
+        'Nome representante': nome,
+        'CPF': cpf,
+        'Data de nascimento': dataNasc,
+        'Telefone do representante': telRepresentante,
+        'Senha': senha
+    }
+
+    return nome # Apenas para conseguir conversar com o usuário
 
 # Programa principal
 
@@ -54,7 +79,7 @@ print("Seja bem-vindo(a)! Eu me chamo Alice, uma inteligência artificial produz
 print("Para prosseguirmos, será necessário a realização do seu cadastro! Vamos lá?!")
 time.sleep(1)
 
-while True: # Looping infinito para caso o usuário insira uma opção inválida, não fechar o programa!
+while True: # Looping infinito de cadastro para caso o usuário insira uma opção inválida, não fechar o programa!
 
     # Vendo se o usuário é do tipo produtor ou consumidor final
     print("Você é um produtor ou somente um consumidor final?")
@@ -78,7 +103,10 @@ while True: # Looping infinito para caso o usuário insira uma opção inválida
                     print(f"Vamos lá!")
                     break
                 elif representaEmpresa == 2:
-                    print("Continua...")
+                    nome = cadastraProdutor()
+                    print(f"{nome}, seja bem-vindo(a) ao nosso sistema!")
+                    print(f"Vamos lá!")
+                    break
                 
             except ValueError:
                 print("Por favor, insira somente números! Tente novamente!")
