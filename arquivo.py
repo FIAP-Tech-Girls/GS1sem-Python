@@ -58,7 +58,7 @@ def cadastraProdutor():
     print("Qual seu e-mail?")
     email = input("")
     print("Qual o seu telefone para contato?")
-    telRepresentante = input("")
+    telProdutor = input("")
     print("Digite sua senha")
     senha = getpass.getpass("Para sua segurança, a senha não mostrará valor enquanto digita. Ao finalizar, aperte enter que será cadastrada automaticamente!", stream=None)
 
@@ -66,11 +66,37 @@ def cadastraProdutor():
         'Nome produtor': nome,
         'CPF': cpf,
         'Data de nascimento': dataNasc,
-        'Telefone': telRepresentante,
+        'Telefone': telProdutor,
         'Senha': senha
     }
 
     return nome # Apenas para conseguir conversar com o usuário
+
+# Cadastrando um consumidor final
+def cadastraConsumidor():
+    print("Qual seu nome completo?")
+    nome = input("")
+    print("Qual seu CPF?")
+    cpf = input("")
+    print("Qual a sua data de nascimento?")
+    dataNasc = input("")
+    print("Qual seu e-mail?")
+    email = input("")
+    print("Qual o seu telefone para contato?")
+    telConsumidor = input("")
+    print("Digite sua senha")
+    senha = getpass.getpass("Para sua segurança, a senha não mostrará valor enquanto digita. Ao finalizar, aperte enter que será cadastrada automaticamente!", stream=None)
+
+    consumidor[email] = {
+        'Nome consumidor': nome,
+        'CPF': cpf,
+        'Data de nascimento': dataNasc,
+        'Telefone': telConsumidor,
+        'Senha': senha
+    }
+
+    return nome # Apenas para conseguir conversar com o usuário
+
 
 # Programa principal
 
@@ -91,7 +117,7 @@ while True: # Looping infinito para caso o usuário insira uma opção inválida
         
         elif tipoUsuario == 1:
             print("Você irá representar uma empresa ou não?")
-            print("\n 1 - Sim \n 2 - Não")
+            print("\n 1 - Sim \n 2 - Não \n")
             try:
                 representaEmpresa = int(input("Informe aqui a opção: "))
                 if (representaEmpresa < 1) or (representaEmpresa > 2):
@@ -117,7 +143,9 @@ while True: # Looping infinito para caso o usuário insira uma opção inválida
             
 
         elif tipoUsuario == 2:
-            print("Implementação futura...")
+            nome = cadastraConsumidor()
+            print(f"{nome}, seja bem-vindo(a) ao nosso sistema!")
+            print(f"Vamos lá!")
             break
 
     except ValueError:
@@ -126,5 +154,3 @@ while True: # Looping infinito para caso o usuário insira uma opção inválida
     except TypeError:
         print("Por favor, insira uma opção válida disponível!")
         time.sleep(1)
-
-
