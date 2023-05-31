@@ -69,6 +69,27 @@ def cadastraConsumidorProdutor():
 
     return nome # Apenas para conseguir conversar com o usuário
 
+# Menu opções caso produtor
+def menuProdutor():
+    # Lista das opções disponíveis
+    print("Digite 1: Para realizar uma previsão de demanda;")
+    print("Digite 2: Para visualizar previsão de vida útil de algum alimento;")
+    print("Digite 3: Para visualizar os locais de doações mais próximos de você;")
+    print("Digite 4: Para encerrar Alice.")
+
+    # Validação do menu
+    try:
+        opcao = int(input("Informe a opção desejada: "))
+        if (opcao < 1) or (opcao > 4):
+            raise TypeError
+        return opcao
+    except ValueError:
+        print("Por favor, informe somente o números dentro das opções disponíveis!")
+        time.sleep(1)
+    except TypeError:
+        print("Opção inválida! Por favor, escolha uma opção válida disponível!")
+
+
 
 # Programa principal
 
@@ -77,8 +98,8 @@ print("Seja bem-vindo(a)! Eu me chamo Alice, uma inteligência artificial produz
 print("Para prosseguirmos, será necessário a realização do seu cadastro! Vamos lá?!")
 time.sleep(1)
 
-cadastro = 0 # para facilitar o looping
-while cadastro == 0: # Looping para caso o usuário insira uma opção inválida no cadastro, não fechar!
+ # para facilitar o looping
+while True: # Looping para caso o usuário insira uma opção inválida no cadastro, não fechar!
 
     # Vendo se o usuário é do tipo produtor ou consumidor final
     print("Você é um produtor ou somente um consumidor final?")
@@ -100,12 +121,20 @@ while cadastro == 0: # Looping para caso o usuário insira uma opção inválida
                     nome = cadastraProdutorEmpresa()
                     print(f"{nome}, seja bem-vindo(a) ao nosso sistema!")
                     print(f"Vamos lá!")
-                    cadastro = 1
+                    break
                 elif representaEmpresa == 2:
                     nome = cadastraConsumidorProdutor()
                     print(f"{nome}, seja bem-vindo(a) ao nosso sistema!")
                     print(f"Vamos lá!")
-                    cadastro = 1
+                    opcao = menuProdutor()
+                    if opcao == 1: 
+                        print("Oi")
+                    elif opcao == 2:
+                        print("Tudo bem?")
+                    elif opcao == 3:
+                        print("Eu me chamo Leticia")
+                    elif opcao == 4:
+                        break
                 
             except ValueError:
                 print("Por favor, insira somente números! Tente novamente!")
@@ -119,7 +148,7 @@ while cadastro == 0: # Looping para caso o usuário insira uma opção inválida
             nome = cadastraConsumidorProdutor()
             print(f"{nome}, seja bem-vindo(a) ao nosso sistema!")
             print(f"Vamos lá!")
-            cadastro = 1
+            break
 
     except ValueError:
         print("Por favor, insira somente números! Tente novamente!")
