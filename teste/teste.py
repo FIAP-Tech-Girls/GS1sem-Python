@@ -127,12 +127,3 @@ while cadastro == 0: # Looping para caso o usuário insira uma opção inválida
     except TypeError:
         print("Por favor, insira uma opção válida disponível!")
         time.sleep(1)
-
-# Depois de ter feito o cadastro, inicia a execução do programa principal em um outro looping
-while True: # Fez esse looping para depois do cadastro, para não voltar TUDO quando opção inválida no menu
-    if tipoUsuario == 1:
-        print("Teste 1")
-        break
-    elif tipoUsuario == 2:
-        print("Teste 2")
-        break
