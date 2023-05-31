@@ -112,6 +112,16 @@ def menuConsumidor():
         print("Opção inválida! Por favor, escolha uma opção válida disponível!")
         time.sleep(1)
 
+# Função para facilitar a entrada do usuário para enviar melhorias a Alice
+def enviarMelhorias():
+    try:
+        print("Escreva embaixo sugestões para melhorias para a Alice!")
+        sugestaoUsuario = input("")
+        if sugestaoUsuario == "":
+            raise TypeError
+        print("Obrigada por enviar suas sugestões! Trabalhamos melhor quando trabalhamos em conjunto! A SFOME agradece!")
+    except TypeError:
+        print("Por favor, não envie sugestões vazias! A SFOME agradece.")
 
 # Programa principal
 
@@ -176,6 +186,7 @@ while cadastro == 0: # Looping para caso o usuário insira uma opção inválida
 
 # Depois de ter feito o cadastro, inicia a execução do programa principal em um outro looping para não voltar TUDO quando opção inválida no menu
 while True:
+    # Quando o usuário é produtor
     if tipoUsuario == 1:
         print(f"{nome}, veja as opções disponíveis para navegar pela Alice!")
         opcao = menuProdutor()
@@ -197,7 +208,7 @@ while True:
 
         # Opção de sugestões de melhorias
         if opcao == 4:
-            print("Implementação futura")
+            sugestao = enviarMelhorias()
             time.sleep(1)
 
         # Encerrando a IA generativa
@@ -205,6 +216,7 @@ while True:
             print("Obrigada por utilizar a Alice! A SFOME agradece pela sua escolha e confiança!")
             break
 
+    # Quando o usuário é consumidor final
     elif tipoUsuario == 2:
         print(f"{nome}, veja as opções disponíveis para navegar pela Alice!")
         opcao = menuConsumidor()
@@ -226,7 +238,7 @@ while True:
 
         # Opção de sugestão de melhorias
         if opcao == 4:
-            print("Implementação futura")
+            sugestao = enviarMelhorias()
             time.sleep(1)
         
         # Encerrando a IA generativa
