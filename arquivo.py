@@ -3,12 +3,9 @@
 import time # intervalo de tempo para o usuário processar as informações
 import getpass # apenas para simular a entrada de senha
 
-# Criando dicionário para produtor que representa ou não empresa
-produtor = {}
+# Criando dicionário para produtor que representa e um dicionário genérico para aqueles que não possuem empresa/consumidor final
+produtorConsumidor = {}
 produtorEmpresa = {}
-
-# Criando dicionário para consumidor 
-consumidor = {}
 
 # Funções
 
@@ -47,33 +44,8 @@ def cadastraProdutorEmpresa():
 
     return nome # Apenas para conseguir conversar com o usuário
 
-# Cadastrando um produtor que não representa uma empresa
-def cadastraProdutor():
-    print("Qual seu nome completo?")
-    nome = input("")
-    print("Qual seu CPF?")
-    cpf = input("")
-    print("Qual a sua data de nascimento?")
-    dataNasc = input("")
-    print("Qual seu e-mail?")
-    email = input("")
-    print("Qual o seu telefone para contato?")
-    telProdutor = input("")
-    print("Digite sua senha")
-    senha = getpass.getpass("Para sua segurança, a senha não mostrará valor enquanto digita. Ao finalizar, aperte enter que será cadastrada automaticamente!", stream=None)
-
-    produtor[email] = {
-        'Nome produtor': nome,
-        'CPF': cpf,
-        'Data de nascimento': dataNasc,
-        'Telefone': telProdutor,
-        'Senha': senha
-    }
-
-    return nome # Apenas para conseguir conversar com o usuário
-
 # Cadastrando um consumidor final
-def cadastraConsumidor():
+def cadastraConsumidorProdutor():
     print("Qual seu nome completo?")
     nome = input("")
     print("Qual seu CPF?")
@@ -87,8 +59,8 @@ def cadastraConsumidor():
     print("Digite sua senha")
     senha = getpass.getpass("Para sua segurança, a senha não mostrará valor enquanto digita. Ao finalizar, aperte enter que será cadastrada automaticamente!", stream=None)
 
-    consumidor[email] = {
-        'Nome consumidor': nome,
+    produtorConsumidor[email] = {
+        'Nome': nome,
         'CPF': cpf,
         'Data de nascimento': dataNasc,
         'Telefone': telConsumidor,
@@ -105,7 +77,8 @@ print("Seja bem-vindo(a)! Eu me chamo Alice, uma inteligência artificial produz
 print("Para prosseguirmos, será necessário a realização do seu cadastro! Vamos lá?!")
 time.sleep(1)
 
-while True: # Looping infinito para caso o usuário insira uma opção inválida, não fechar o programa!
+cadastro = 0
+while cadastro == 0: # Looping para caso o usuário insira uma opção inválida no cadastro, não fechar!
 
     # Vendo se o usuário é do tipo produtor ou consumidor final
     print("Você é um produtor ou somente um consumidor final?")
@@ -127,12 +100,12 @@ while True: # Looping infinito para caso o usuário insira uma opção inválida
                     nome = cadastraProdutorEmpresa()
                     print(f"{nome}, seja bem-vindo(a) ao nosso sistema!")
                     print(f"Vamos lá!")
-                    break
+                    cadastro = 1
                 elif representaEmpresa == 2:
-                    nome = cadastraProdutor()
+                    nome = cadastraConsumidorProdutor()
                     print(f"{nome}, seja bem-vindo(a) ao nosso sistema!")
                     print(f"Vamos lá!")
-                    break
+                    cadastro = 1
                 
             except ValueError:
                 print("Por favor, insira somente números! Tente novamente!")
@@ -143,10 +116,10 @@ while True: # Looping infinito para caso o usuário insira uma opção inválida
             
 
         elif tipoUsuario == 2:
-            nome = cadastraConsumidor()
+            nome = cadastraConsumidorProdutor()
             print(f"{nome}, seja bem-vindo(a) ao nosso sistema!")
             print(f"Vamos lá!")
-            break
+            cadastro = 1
 
     except ValueError:
         print("Por favor, insira somente números! Tente novamente!")
@@ -154,3 +127,12 @@ while True: # Looping infinito para caso o usuário insira uma opção inválida
     except TypeError:
         print("Por favor, insira uma opção válida disponível!")
         time.sleep(1)
+
+# Depois de ter feito o cadastro, inicia a execução do programa principal
+while True: # Fez esse looping para depois do cadastro, para não voltar TUDO quando opção inválida no menu
+    if tipoUsuario == 1:
+        print("Teste 1")
+        break
+    elif tipoUsuario == 2:
+        print("Teste 2")
+        break
