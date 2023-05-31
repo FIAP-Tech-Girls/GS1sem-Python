@@ -69,6 +69,49 @@ def cadastraConsumidorProdutor():
 
     return nome # Apenas para conseguir conversar com o usuário
 
+# Menu de opções caso produtor
+def menuProdutor():
+    # Lista das opções disponíveis
+    print("Digite 1: Realizar uma previsão de demanda;")
+    print("Digite 2: Visualizar previsão de vida útil de algum alimento;")
+    print("Digite 3: Visualizar os locais de doações mais próximos de você;")
+    print("Digite 4: Sugestão de melhorias para a Alice;")
+    print("Digite 5: Encerrar Alice.")
+
+    # Validação do menu
+    try:
+        opcao = int(input("Informe a opção desejada: "))
+        if (opcao < 1) or (opcao > 5):
+            raise TypeError
+        return opcao
+    except ValueError:
+        print("Por favor, informe somente o números dentro das opções disponíveis!")
+        time.sleep(1)
+    except TypeError:
+        print("Opção inválida! Por favor, escolha uma opção válida disponível!")
+
+# Menu de opções caso consumidor final
+def menuConsumidor():
+    # Lista das opções disponíveis
+    print("Digite 1: Visualizar receitas criativas disponíveis;")
+    print("Digite 2: Enviar sugestão de receitas;")
+    print("Digite 3: Visualizar os locais de doações mais próximos de você;")
+    print("Digite 4: Sugestão de melhorias para a Alice;")
+    print("Digite 5: Encerrar Alice.")
+
+    # Validação do menu
+    try:
+        opcao = int(input("Informe a opção desejada: "))
+        if (opcao < 1) or (opcao > 5):
+            raise TypeError
+        return opcao
+    except ValueError:
+        print("Por favor, informe somente o números dentro das opções disponíveis!")
+        time.sleep(1)
+    except TypeError:
+        print("Opção inválida! Por favor, escolha uma opção válida disponível!")
+        time.sleep(1)
+
 
 # Programa principal
 
@@ -100,11 +143,13 @@ while cadastro == 0: # Looping para caso o usuário insira uma opção inválida
                     nome = cadastraProdutorEmpresa()
                     print(f"{nome}, seja bem-vindo(a) ao nosso sistema!")
                     print(f"Vamos lá!")
+                    time.sleep(1)
                     cadastro = 1
                 elif representaEmpresa == 2:
                     nome = cadastraConsumidorProdutor()
                     print(f"{nome}, seja bem-vindo(a) ao nosso sistema!")
                     print(f"Vamos lá!")
+                    time.sleep(1)
                     cadastro = 1
                 
             except ValueError:
@@ -119,6 +164,7 @@ while cadastro == 0: # Looping para caso o usuário insira uma opção inválida
             nome = cadastraConsumidorProdutor()
             print(f"{nome}, seja bem-vindo(a) ao nosso sistema!")
             print(f"Vamos lá!")
+            time.sleep(1)
             cadastro = 1
 
     except ValueError:
@@ -128,11 +174,42 @@ while cadastro == 0: # Looping para caso o usuário insira uma opção inválida
         print("Por favor, insira uma opção válida disponível!")
         time.sleep(1)
 
-# Depois de ter feito o cadastro, inicia a execução do programa principal em um outro looping
-while True: # Fez esse looping para depois do cadastro, para não voltar TUDO quando opção inválida no menu
+# Depois de ter feito o cadastro, inicia a execução do programa principal em um outro looping para não voltar TUDO quando opção inválida no menu
+while True:
     if tipoUsuario == 1:
-        print("Teste 1")
-        break
+        print(f"{nome}, veja as opções disponíveis para navegar pela Alice!")
+        opcao = menuProdutor()
+        if opcao == 1:
+            print("Implementação futura")
+            time.sleep(1)
+        if opcao == 2:
+            print("Implementação futura")
+            time.sleep(1)
+        if opcao == 3:
+            print("Implementação futura")
+            time.sleep(1)
+        if opcao == 4:
+            print("Implementação futura")
+            time.sleep(1)
+        if opcao == 5:
+            print("Obrigada por utilizar a Alice! A SFOME agradece pela sua escolha e confiança!")
+            break
+
     elif tipoUsuario == 2:
-        print("Teste 2")
-        break
+        print(f"{nome}, veja as opções disponíveis para navegar pela Alice!")
+        opcao = menuConsumidor()
+        if opcao == 1:
+            print("Implementação futura")
+            time.sleep(1)
+        if opcao == 2:
+            print("Implementação futura")
+            time.sleep(1)
+        if opcao == 3:
+            print("Implementação futura")
+            time.sleep(1)
+        if opcao == 4:
+            print("Implementação futura")
+            time.sleep(1)
+        if opcao == 5:
+            print("Obrigada por utilizar a Alice! A SFOME agradece pela sua escolha e confiança!")
+            break
