@@ -75,7 +75,7 @@ def menuProdutor():
     print("Digite 1: Realizar uma previsão de demanda;")
     print("Digite 2: Visualizar previsão de vida útil de algum alimento;")
     print("Digite 3: Visualizar os locais de doações mais próximos de você;")
-    print("Digite 4: Sugestão de melhorias para a Alice;")
+    print("Digite 4: Sugerir de melhorias para a Alice;")
     print("Digite 5: Encerrar Alice.")
 
     # Validação do menu
@@ -96,7 +96,7 @@ def menuConsumidor():
     print("Digite 1: Visualizar receitas criativas disponíveis;")
     print("Digite 2: Enviar sugestão de receitas;")
     print("Digite 3: Visualizar os locais de doações mais próximos de você;")
-    print("Digite 4: Sugestão de melhorias para a Alice;")
+    print("Digite 4: Sugerir de melhorias para a Alice;")
     print("Digite 5: Encerrar Alice.")
 
     # Validação do menu
@@ -179,18 +179,28 @@ while True:
     if tipoUsuario == 1:
         print(f"{nome}, veja as opções disponíveis para navegar pela Alice!")
         opcao = menuProdutor()
+
+        # Opção de previsão de demanda
         if opcao == 1:
             print("Implementação futura")
             time.sleep(1)
+
+        # Opção de previsão de vida útil
         if opcao == 2:
             print("Implementação futura")
             time.sleep(1)
+
+        # Opção de locais de doações próximos à você
         if opcao == 3:
             print("Implementação futura")
             time.sleep(1)
+
+        # Opção de sugestões de melhorias
         if opcao == 4:
             print("Implementação futura")
             time.sleep(1)
+
+        # Encerrando a IA generativa
         if opcao == 5:
             print("Obrigada por utilizar a Alice! A SFOME agradece pela sua escolha e confiança!")
             break
@@ -198,18 +208,28 @@ while True:
     elif tipoUsuario == 2:
         print(f"{nome}, veja as opções disponíveis para navegar pela Alice!")
         opcao = menuConsumidor()
+
+        # Opção de visualizar receitas disponíveis
         if opcao == 1:
             print("Implementação futura")
             time.sleep(1)
+
+        # Opção de sugestão de receitas
         if opcao == 2:
             print("Implementação futura")
             time.sleep(1)
+
+        # Opção de locais de doações próximos à você
         if opcao == 3:
             print("Implementação futura")
             time.sleep(1)
+
+        # Opção de sugestão de melhorias
         if opcao == 4:
             print("Implementação futura")
             time.sleep(1)
+        
+        # Encerrando a IA generativa
         if opcao == 5:
             print("Obrigada por utilizar a Alice! A SFOME agradece pela sua escolha e confiança!")
             break
