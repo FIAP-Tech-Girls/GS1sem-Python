@@ -141,8 +141,10 @@ def sugestaoReceita():
                 raise TypeError("Não envie informações de ingrediente vazias! Por favor, tente novamente.")
             ingredientes.append(ingrediente)
 
+        time.sleep(1)
         instrucoes = [] # guarda as instruções em uma lista para facilitar
 
+        time.sleep(1)
         while True:
             instrucao = input("Informe uma instrução da receita por vez (para encerrar, digite 0): ")
             if instrucao == "0":
@@ -161,6 +163,7 @@ def sugestaoReceita():
     
     except TypeError as msg:
         print(msg)
+        time.sleep(1)
 
 # Programa principal
 
@@ -267,7 +270,7 @@ while True:
 
         # Opção de sugestão de receitas
         if opcao == 2:
-            print("Implementação futura")
+            receita = sugestaoReceita()
             time.sleep(1)
 
         # Opção de locais de doações próximos à você
