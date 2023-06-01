@@ -24,19 +24,31 @@ def sugestaoReceita():
                 break
             elif instrucao == "":
                 raise TypeError("Não envie instruções vazias! Por favor, tente novamente.")
-            instrucoes.append(instrucoes)
+            instrucoes.append(instrucao)
 
         receita = {
-            'Título da receita': tituloReceita,
-            'Ingredientes': ingredientes,
-            'Instruções:': instrucoes
+            'titulo': tituloReceita,
+            'ingredientes': ingredientes,
+            'instrucoes': instrucoes
         }
         
         return receita
     
     except TypeError as msg:
         print(msg)
+        return False
 
+def mostrarReceitaConfirmacao(receita):
+    print(f"Título da receita: {receita['titulo']}")
+    print("Ingredientes")
+    for ingrediente in receita['ingredientes']:
+        print(f"- {ingrediente}")
+    print("Instruções: ")
+    for i, instrucao in enumerate(receita['instrucoes'], start=1):
+        print(f"{i}. {instrucao}")
 
 receita = sugestaoReceita()
-print (receita)
+if receita == False:
+    print("")
+else:
+    mostrarReceitaConfirmacao(receita)

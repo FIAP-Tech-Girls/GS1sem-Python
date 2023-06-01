@@ -123,6 +123,7 @@ def enviarMelhorias():
     except TypeError:
         print("Por favor, não envie sugestões vazias! A SFOME agradece.")
 
+
 # Função para facilitar as sugestões de receita do usuário 
 def sugestaoReceita():
     try:
@@ -141,29 +142,37 @@ def sugestaoReceita():
                 raise TypeError("Não envie informações de ingrediente vazias! Por favor, tente novamente.")
             ingredientes.append(ingrediente)
 
-        time.sleep(1)
         instrucoes = [] # guarda as instruções em uma lista para facilitar
 
-        time.sleep(1)
         while True:
             instrucao = input("Informe uma instrução da receita por vez (para encerrar, digite 0): ")
             if instrucao == "0":
                 break
             elif instrucao == "":
                 raise TypeError("Não envie instruções vazias! Por favor, tente novamente.")
-            instrucoes.append(instrucoes)
+            instrucoes.append(instrucao)
 
         receita = {
-            'Título da receita': tituloReceita,
-            'Ingredientes': ingredientes,
-            'Instruções:': instrucoes
+            'titulo': tituloReceita,
+            'ingredientes': ingredientes,
+            'instrucoes': instrucoes
         }
         
         return receita
     
     except TypeError as msg:
         print(msg)
-        time.sleep(1)
+        return False
+
+def mostrarReceitaConfirmacao(receita):
+    print(f"Título da receita: {receita['titulo']}")
+    print("Ingredientes")
+    for ingrediente in receita['ingredientes']:
+        print(f"- {ingrediente}")
+    print("Instruções: ")
+    for i, instrucao in enumerate(receita['instrucoes'], start=1):
+        print(f"{i}. {instrucao}")
+     
 
 # Programa principal
 
@@ -271,6 +280,27 @@ while True:
         # Opção de sugestão de receitas
         if opcao == 2:
             receita = sugestaoReceita()
+            if receita == False:
+                print("")
+            else:
+                mostrarReceitaConfirmacao(receita)
+                print("Deseja confirmar a receita? \n 1 - Para sim \n 2 - Para não")
+                try:
+                    confirma = int(input(""))
+                    if (confirma < 1) or (confirma > 2):
+                        raise TypeError
+                    elif confirma == 1:
+                        print("Obrigada por enviar a sua sugestão de receita!")
+                        print("A equipe da SFOME irá revisar e em breve, sua receita aparecerá em receitas criativas!")
+                    elif confirma == 2:
+                        print("Obrigada, de qualquer forma! A SFOME agradece!")
+                except ValueError:
+                    print("Por favor, insira somente números! Tente novamente!")
+                    time.sleep(1)
+                except TypeError:
+                    print("Por favor, insira uma opção válida disponível!")
+                    time.sleep(1)
+                    
             time.sleep(1)
 
         # Opção de locais de doações próximos à você
