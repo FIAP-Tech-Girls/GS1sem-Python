@@ -123,6 +123,8 @@ def enviarMelhorias():
     except TypeError:
         print("Por favor, não envie sugestões vazias! A SFOME agradece.")
 
+
+
 # Programa principal
 
 # Mensagem de boas vindas
