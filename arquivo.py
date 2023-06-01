@@ -269,12 +269,14 @@ while True:
 
     # Quando o usuário é consumidor final
     elif tipoUsuario == 2:
-        
+
         print(f"{nome}, veja as opções disponíveis para navegar pela Alice!")
         opcao = menuConsumidor()
 
         # Opção de visualizar receitas disponíveis
         if opcao == 1:
+            print("Você sabia que há diferentes formas de aproveitar os alimentos, ao invés de descarta-los?")
+            print("Veja abaixo algumas opções de receitas e escolha qual desejar para ver com mais detalhes!")
             print("Implementação futura")
             time.sleep(1)
 
