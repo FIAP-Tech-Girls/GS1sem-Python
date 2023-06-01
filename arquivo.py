@@ -269,6 +269,7 @@ while True:
 
     # Quando o usuário é consumidor final
     elif tipoUsuario == 2:
+        
         print(f"{nome}, veja as opções disponíveis para navegar pela Alice!")
         opcao = menuConsumidor()
 
