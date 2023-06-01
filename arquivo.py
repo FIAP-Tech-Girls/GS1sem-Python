@@ -292,8 +292,10 @@ while True:
                     elif confirma == 1:
                         print("Obrigada por enviar a sua sugestão de receita!")
                         print("A equipe da SFOME irá revisar e em breve, sua receita aparecerá em receitas criativas!")
+                        time.sleep(1)
                     elif confirma == 2:
                         print("Obrigada, de qualquer forma! A SFOME agradece!")
+                        time.sleep(1)
                 except ValueError:
                     print("Por favor, insira somente números! Tente novamente!")
                     time.sleep(1)
