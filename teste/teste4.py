@@ -1,5 +1,4 @@
 # Criando receitas pré-definidas para mostrar
-
 receitasDefinidas = {
     'sucoLimaoCasca': {
         'titulo': 'Suco de limão com casca',
@@ -52,6 +51,8 @@ receitasDefinidas = {
     }
 }
 
+
+# Função para mostrar o menu de receitas definidas dentro da variável receitasDefinidas
 def menuReceitas(receitasDefinidas):
     print("Receitas disponíveis")
     print("Escolha o número em frente a receita para exibi-la")
@@ -60,6 +61,7 @@ def menuReceitas(receitasDefinidas):
         print(f"{i}. {receita['titulo']}")
     print("----------------")
 
+# Função para exibir a receita a partir da escolha do usuário
 def exibirReceita(receita):
     print("-------------------")
     print(f"Título: {receita['titulo']}")
@@ -73,6 +75,7 @@ def exibirReceita(receita):
     print(f"Os créditos para essa receita vai para: {receita['creditoAutor']}")
     print("-------------------")
 
+# Para facilitar o chamado de escolher a receita
 def escolherReceita(receitas):
     while True:
         menuReceitas(receitas)
