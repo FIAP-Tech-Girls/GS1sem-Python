@@ -7,7 +7,7 @@ import getpass # apenas para simular a entrada de senha
 produtorConsumidor = {}
 produtorEmpresa = {}
 
-# Criando receitas pré-definidas para mostrar
+# Criando receitas pré-definidas para mostrar dentro de um dicionário e vetores para ajudar
 receitasDefinidas = {
     'sucoLimaoCasca': {
         'titulo': 'Suco de limão com casca',
