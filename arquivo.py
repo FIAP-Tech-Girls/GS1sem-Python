@@ -217,6 +217,7 @@ def sugestaoReceita():
         print(msg)
         return False
 
+# Função de confirmar se o usuário deseja enviar a receita ou não
 def mostrarReceitaConfirmacao(receita):
     print(f"Título da receita: {receita['titulo']}")
     print("Ingredientes")
@@ -226,6 +227,49 @@ def mostrarReceitaConfirmacao(receita):
     for i, instrucao in enumerate(receita['instrucoes'], start=1):
         print(f"{i}. {instrucao}")
      
+# Função para mostrar o menu de receitas definidas dentro da variável receitasDefinidas
+def menuReceitas(receitasDefinidas):
+    print("Receitas disponíveis")
+    print("Escolha o número em frente a receita para exibi-la")
+    for i, receitaID in enumerate(receitasDefinidas, start=1):
+        receita = receitasDefinidas[receitaID]
+        print(f"{i}. {receita['titulo']}")
+    print("----------------")
+
+# Função para exibir a receita a partir da escolha do usuário
+def exibirReceita(receita):
+    print("-------------------")
+    print(f"Título: {receita['titulo']}")
+    print(f"{receita['descricao']}")
+    print("Ingredientes:")
+    for ingrediente in receita['ingredientes']:
+        print(f"- {ingrediente}")
+    print("Instruções:")
+    for i, instrucao in enumerate(receita['instrucoes'], start=1):
+        print(f"{i}. {instrucao}")
+    print(f"Os créditos para essa receita vai para: {receita['creditoAutor']}")
+    print("-------------------")
+
+# Para facilitar o chamado de escolher a receita
+def escolherReceita(receitas):
+    while True:
+        menuReceitas(receitas)
+
+        opcao = input("Digite a opção escolhida aqui (para voltar ao menu principal, digite 0): ")
+
+        if opcao == "0":
+            break
+
+        try:
+            opcao = int(opcao)
+            if opcao < 1 or opcao > len(receitas):
+                raise ValueError
+            receitaEscolhida = list(receitas.values())[opcao - 1] # converte a opção pra o index correto (pois em vetores, começa a contagem em 0!)
+            exibirReceita(receitaEscolhida)
+            time.sleep(1)
+        except ValueError:
+            print("Opção inválida. Digite somente números dentro das opções válidas.")
+            time.sleep(1)
 
 # Programa principal
 
@@ -330,7 +374,7 @@ while True:
         if opcao == 1:
             print("Você sabia que há diferentes formas de aproveitar os alimentos, ao invés de descarta-los?")
             print("Veja abaixo algumas opções de receitas e escolha qual desejar para ver com mais detalhes!")
-            print("Implementação futura")
+            escolherReceita(receitasDefinidas)
             time.sleep(1)
 
         # Opção de sugestão de receitas

@@ -92,8 +92,8 @@ def escolherReceita(receitas):
 
             receita_escolhida = list(receitas.values())[opcao - 1]
             exibirReceita(receita_escolhida)
-        except ValueError as e:
-            print(e)
+        except ValueError as msg:
+            print(msg)
 
 escolherReceita(receitasDefinidas)
 
