@@ -367,14 +367,19 @@ while True:
             time.sleep(1)
             print("")
             
-            a = float(input("Informe a variação quadrática da demanda, ou seja, a variação da demanda ao longo do tempo: "))
-            b = float(input("Informe o termo linear da demanda, ou seja, a taxa de variação da demanda conforme o tempo: "))
-            c = float(input("Informe o termo constante da demanda, ou seja, o valor inicial da demanda: "))
-            tempo = int(input("Informe o tempo desejado, em semanas, da demanda futura: "))
-            previsao = previsaoDemanda(a, b, c, tempo)
-            print(f"A previsão de demanda no tempo de {tempo} semanas é de aproximadamente {previsao}")
-            time.sleep(1)
-
+            # Tratamento de erros caso o usuário digite informações inválidas
+            try:
+                a = float(input("Informe a variação quadrática da demanda, ou seja, a variação da demanda ao longo do tempo: "))
+                b = float(input("Informe o termo linear da demanda, ou seja, a taxa de variação da demanda conforme o tempo: "))
+                c = float(input("Informe o termo constante da demanda, ou seja, o valor inicial da demanda: "))
+                tempo = int(input("Informe o tempo desejado, em semanas, da demanda futura: "))
+                previsao = previsaoDemanda(a, b, c, tempo)
+                print(f"A previsão de demanda no tempo de {tempo} semanas é de aproximadamente {previsao}")
+                time.sleep(1)
+            except ValueError:
+                print("Por favor, informe somente números! E de preferência, não envie informações vazias! A SFOME agradece")
+                time.sleep(1)
+                
         # Opção de previsão de vida útil
         if opcao == 2:
             print("Implementação futura")
