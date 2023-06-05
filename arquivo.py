@@ -356,6 +356,17 @@ while True:
 
         # Opção de previsão de demanda
         if opcao == 1:
+            # Comentário inicial falando sobre a previsão de demanda e importância
+            print("Você sabia que a previsão de demanda é um processo analítico que visa estimar a quantidade" 
+                " de produtos ou serviços que serão procurados pelos consumidores em um determinado período"
+                " de tempo?")
+            print("É essencial para você, produtor, que deseja planejar suas operações, desde a produção até"
+                " a gestão de estoque e distribuição, evitando o desperdício de alimentos, e"
+                " consequentemente, diminuindo os gastos e aumentando seu lucro, além de atender às" 
+                "expectativas dos clientes.")
+            time.sleep(1)
+            print("")
+            
             a = float(input("Informe a variação quadrática da demanda, ou seja, a variação da demanda ao longo do tempo: "))
             b = float(input("Informe o termo linear da demanda, ou seja, a taxa de variação da demanda conforme o tempo: "))
             c = float(input("Informe o termo constante da demanda, ou seja, o valor inicial da demanda: "))
