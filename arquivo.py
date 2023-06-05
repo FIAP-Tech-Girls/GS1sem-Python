@@ -281,6 +281,10 @@ def locaisDoacoes():
     except ValueError:
         print("Por favor, informe somente números e não envie informações vazias! A SFOME agradece!")
 
+# Função de previsão de demanda conforme visto em Differentiated Problem Solving
+def previsaoDemanda(a, b, c, tempo):
+    previsao = a * tempo**2 + b * tempo + c
+    return previsao
 
 # Programa principal
 
@@ -352,7 +356,12 @@ while True:
 
         # Opção de previsão de demanda
         if opcao == 1:
-            print("Implementação futura")
+            a = float(input("Informe a variação quadrática da demanda, ou seja, a variação da demanda ao longo do tempo: "))
+            b = float(input("Informe o termo linear da demanda, ou seja, a taxa de variação da demanda conforme o tempo: "))
+            c = float(input("Informe o termo constante da demanda, ou seja, o valor inicial da demanda: "))
+            tempo = int(input("Informe o tempo desejado, em semanas, da demanda futura: "))
+            previsao = previsaoDemanda(a, b, c, tempo)
+            print(f"A previsão de demanda no tempo de {tempo} semanas é de aproximadamente {previsao}")
             time.sleep(1)
 
         # Opção de previsão de vida útil
