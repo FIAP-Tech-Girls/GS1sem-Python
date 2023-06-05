@@ -16,6 +16,7 @@ def previsaoVidaUtil():
         # Caso alimento perecível (que estraga fácil)
         elif alimento == 1:
             print("Esse alimento é resfriado ou congelado?")
+            print("PS: O monitoramento de temperatura é essencial em todos os casos. Para te ajudar, procure conhecer sobre o Arduíno da SFOME!")
             print("\n 1 - Resfriado \n 2 - Congelado \n")
 
             tipoPerecivel = int(input("Informe a opção desejada aqui: "))
@@ -72,7 +73,8 @@ def previsaoVidaUtil():
                     print("3. Evite umidades excessivas e formação de condensação! Pois muitos legumes são sensíveis a umidade.")
                     print("4. Coloque os legumes em embalagens apropriadas, que além de proteger de danos físicos, protege da exposição à bactérias")
                     print("5. Se possível, minimize o tempo de transporte e entregue o mais rápido possível!")
-            
+                    time.sleep(2)
+
             # Quando congelado
             elif tipoPerecivel == 2:
                 print("Alimentos perecíveis congelados")
@@ -85,7 +87,21 @@ def previsaoVidaUtil():
                 
                 # Caso carnes
                 elif alimentoPerecivelCongelado == 1:
-                    print("Continua")
+                    print("É fundamental que, no caso das carnes, sejam elas bovinas, suínas ou frangos, o transporte seja feito de forma apropriada para preservar a qualidade e a segurança do produto.")
+                    time.sleep(2)
+
+                    print("A temperatura ideal deve se manter abaixo de -18°C (-0.4°F) para evitar o crescimento de microorganismos e preservar sua qualidade.")
+                    time.sleep(2)
+
+                    print("A embalagem adequada é que seja a vácuo, projetadas especificamente para preservar a qualidade de produtos congelados.")
+                    print("A embalagem adequada ajuda a evitar a formação de cristais de gelo e a proteger a carne de danos físicos!")
+                    time.sleep(2)
+
+                    print("O isolamento térmico é importante, garantindo que a carne congelada eja protegida do ambiente externo e de flutuações de temperatura. O uso de contêineres ou caixas isoladas termicamente pode ajudar a manter a temperatura estável e minimizar o risco de descongelamento parcial.")
+                    time.sleep(2)
+
+                    print("Em alguns casos, pode ser necessário utilizar serviços de transporte especializados em produtos congelados para garantir que a carne bovina congelada seja manuseada corretamente e que as condições de temperatura sejam adequadamente mantidas. É importante visualizar as diretrizes locais de onde sairá a carne e de entrega! :)")
+                    time.sleep(2)
 
                 # Caso sorvetes
                 elif alimentoPerecivelCongelado == 2:
