@@ -417,7 +417,8 @@ while True:
         if opcao == 2:
             receita = sugestaoReceita()
             if receita == False:
-                print("")
+                print("Não foi enviada nenhuma receita. Voltando ao menu principal.")
+                time.sleep(1)
             else:
                 mostrarReceitaConfirmacao(receita)
                 print("Deseja confirmar a receita? \n 1 - Para sim \n 2 - Para não")
